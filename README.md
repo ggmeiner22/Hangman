@@ -1,2 +1,2 @@
-# Hangman
-Hangman for CSE 3120
+# Lottery
+Lottery for CSE 3120
