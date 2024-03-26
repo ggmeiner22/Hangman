@@ -36,6 +36,40 @@ co2 BYTE "Decided to continue to play...", 0
 invalid1 BYTE "You think you are slick and can cheat my game?", 0
 
 lucky1 BYTE "It appears that Dr. Stansifer accidently gave you points when you got the question totally wrong!", 0
+
+cat1 BYTE " /\_/\", 0
+cat2 BYTE "( o.o )", 0
+cat3 BYTE " > ^ < ", 0
+cat4 BYTE "/  '  \", 0
+cat5 BYTE "/_____\", 0
+
+ufo1 BYTE "       /\\        ", 0
+ufo2 BYTE "      /  \\      ", 0
+ufo3 BYTE "     /    \\    ", 0
+ufo4 BYTE "    /------\\  ", 0
+ufo5 BYTE "   /        \\", 0
+ufo6 BYTE "  /----------\\", 0
+ufo7 BYTE " /------------\\", 0
+ufo8 BYTE "/--------------\\", 0
+ufo9 BYTE "|    _  _      |", 0
+ufo10 BYTE "|  / |  | \    |", 0
+ufo11 BYTE "| /  |  |  \   |", 0
+ufo12 BYTE "|    |  |      |", 0
+ufo13 BYTE "|--------------|", 0
+ufo14 BYTE "| |        | | |", 0
+ufo15 BYTE "| |        | | |", 0
+ufo16 BYTE "| |________| | |", 0
+ufo17 BYTE "|______________|", 0
+
+
+peng1 BYTE "   .--.  ", 0
+peng2 BYTE "  |o_o | ", 0
+peng3 BYTE "  |:_/ | ", 0
+peng4 BYTE " //   \ \ ", 0
+peng5 BYTE "(|     | )", 0
+peng6 BYTE " /\'---'/\ ", 0
+peng7 BYTE "/ /| | |\ \", 0
+
 .code
 main PROC
 
@@ -225,6 +259,9 @@ Game:
 Invalid:
    mov	edx, OFFSET invalid1
    call WriteString
+   call Crlf
+   call Crlf
+   call Draw  ; //Draws something cool
    call WaitP
    call Clrscr
    jmp Game
@@ -352,5 +389,139 @@ call RandomRange; //Generate random int
 inc eax
 ret
 GradedWrong ENDP
+
+RandPic PROC
+mov	eax, 3; Values 0 - 2
+call RandomRange; //Generate random int
+ret
+RandPic ENDP
+
+Draw Proc
+call	Randomize; //Initialize random generator
+call RandPic
+cmp eax, 0
+je Cat
+cmp eax, 1
+je Ufo
+cmp eax, 2
+je Pengiun
+
+Cat:
+call CreateCat
+jmp DrawEnd
+
+Ufo:
+call CreateUfo
+jmp DrawEnd
+
+Pengiun:
+call CreatePeng
+jmp DrawEnd
+
+DrawEnd:
+ret
+Draw ENDP
+
+CreateCat PROC
+; //creates cat
+mov	edx, OFFSET cat1
+call WriteString
+call Crlf
+mov	edx, OFFSET cat2
+call WriteString
+call Crlf
+mov	edx, OFFSET cat3
+call WriteString
+call Crlf
+mov	edx, OFFSET cat4
+call WriteString
+call Crlf
+mov	edx, OFFSET cat5
+call WriteString
+call Crlf
+ret
+CreateCat ENDP
+
+
+CreateUfo PROC  ; //Creates UFO
+mov	edx, OFFSET ufo1
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo2
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo3
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo4
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo5
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo6
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo7
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo8
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo9
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo10
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo11
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo12
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo13
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo14
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo15
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo16
+call WriteString
+call Crlf
+mov	edx, OFFSET ufo17
+call WriteString
+call Crlf
+ret
+CreateUfo ENDP
+
+
+CreatePeng PROC  ; //Creates Penguin
+mov	edx, OFFSET peng1
+call WriteString
+call Crlf
+mov	edx, OFFSET peng2
+call WriteString
+call Crlf
+mov	edx, OFFSET peng3
+call WriteString
+call Crlf
+mov	edx, OFFSET peng4
+call WriteString
+call Crlf
+mov	edx, OFFSET peng5
+call WriteString
+call Crlf
+mov	edx, OFFSET peng6
+call WriteString
+call Crlf
+mov	edx, OFFSET peng7
+call WriteString
+call Crlf
+ret
+CreatePeng ENDP
 
 END main
