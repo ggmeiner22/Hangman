@@ -11,7 +11,7 @@ intro5 BYTE "Another emailed him asking if an 88 was an A!", 0
 intro6 BYTE "He had had enough, these students must be idiots!", 0
 intro7 BYTE "Upon aggressivly leaving work, he spotted Dr. Silaghi.", 0
 intro8 BYTE "Built with rage over his pesky students, he pushed Dr. Silaghi off his bike and stole it for his own!", 0
-intro9 BYTE "Dr. Chan was also leaving work, but didn't see anything since his head was down.", 0
+;intro9 BYTE "Dr. Chan was also leaving work, but didn't see anything since his head was down.", 0
 intro10 BYTE "Dr. Silaghi had to walk home that night.", 0
 intro11 BYTE "The next moring, Dr. Silaghi was late to school and missed his entire assembly class.", 0
 intro12a BYTE "He was torn, he couldn't keep missing his favorite class to teach networks", 0
@@ -141,10 +141,10 @@ call WaitP
 call Crlf
 
 ; //intro9
-mov	edx, OFFSET intro9
-call WriteString
-call WaitP
-call Crlf
+;mov	edx, OFFSET intro9
+;call WriteString
+;call WaitP
+;call Crlf
 
 ; //intro10
 mov	edx, OFFSET intro10
