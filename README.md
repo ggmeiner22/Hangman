@@ -1,5 +1,4 @@
 # Lottery
 Lottery for CSE 3120
 
-game.asm is the first. \n
-scamazon.asm is the seaqual.
+game.asm (Dr. Stansifer's Turing Machine) is the first of the series and scamazon.asm is the sequal.
